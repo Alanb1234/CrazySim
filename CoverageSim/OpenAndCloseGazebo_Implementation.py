@@ -74,7 +74,7 @@ def start_gazebo():
     global gz_process
     print("Starting Gazebo...")
     gz_process = subprocess.Popen(
-        ["/bin/bash", "/home/alan/CrazySim/crazyflie-lib-python/launch_gazebo.sh", "start"],
+        ["/bin/bash", "/home/alan/CrazySim/CoverageSim/launch_gazebo.sh", "start"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
