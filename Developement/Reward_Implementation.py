@@ -109,7 +109,7 @@ def calculate_reward(positions, theta_x, theta_y):
 
     # Build graph and count connected components
     graph = build_graph(fovs)
-    draw_graph(graph, num_robots, uri_list)
+    #draw_graph(graph, num_robots, uri_list)
 
     num_components = count_connected_components(graph, num_robots)
 
@@ -185,9 +185,9 @@ if __name__ == '__main__':
         reward_2, total_area_2, overlap_area_2, penalty_2, num_robots_2 = calculate_reward(TakeOff_positions, theta_x, theta_y)
         print(f'coverage Reward: {reward_2}, Total Area: {total_area_2}, Overlap Area: {overlap_area_2}, penalty: {penalty_2}, robots: {num_robots_2}')
 
-        swarm.parallel_safe(random_movement)
-        reward_3, total_area_3, overlap_area_3, penalty_3, num_robots_3 = calculate_reward(TakeOff_positions, theta_x, theta_y)
-        print(f'coverage Reward: {reward_3}, Total Area: {total_area_3}, Overlap Area: {overlap_area_3}, penalty: {penalty_3}, robots: {num_robots_3}')
+        #swarm.parallel_safe(random_movement)
+        #reward_3, total_area_3, overlap_area_3, penalty_3, num_robots_3 = calculate_reward(TakeOff_positions, theta_x, theta_y)
+        #print(f'coverage Reward: {reward_3}, Total Area: {total_area_3}, Overlap Area: {overlap_area_3}, penalty: {penalty_3}, robots: {num_robots_3}')
 
 
         print("Final Position:")        
