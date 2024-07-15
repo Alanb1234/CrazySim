@@ -57,7 +57,7 @@ bash tools/crazyflie-simulation/simulator_files/gazebo/launch/sitl_multiagent_te
 
 Now you can run any CFLib Python script with URI `udp://0.0.0.0:19850`. For drone swarms increment the port for each additional drone.
 
-## 5). Running the traing simulation
+## 5). Running the training simulation
 ```bash
 cd ~/CrazySim/CoverageSim
 python3 Training_Implementation.py
