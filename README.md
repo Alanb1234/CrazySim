@@ -26,7 +26,7 @@ git clone https://github.com/Alanb1234/CrazySim.git --recursive
 
 ## 2). crazyflie-lib-python
 ```bash
-cd crazyflie-lib-python
+cd ~/CrazySim/crazyflie-lib-python
 pip install -e .
 ```
 
