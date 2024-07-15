@@ -7,9 +7,9 @@ from cflib.crazyflie.swarm import CachedCfFactory, Swarm
 
 
 import threading
-from Training_Components import GazeboController, UAVController, RewardCalculator, DataSaver, ResetPublisher
+from Training_Components import GazeboController, UAVController, RewardCalculator, DataSaver
 
-NUM_EPISODES = 10
+NUM_EPISODES = 4
 CONNECTION_TIMEOUT = 45
 episode_finished_event = threading.Event()
 
