@@ -88,32 +88,52 @@ def run_episode(episode):
         episode_finished_event.set()
 
 
+
+
+
+
+
+
 if __name__ == '__main__':
     print(f"Number of active threads: {threading.active_count()}")
 
-    gazebo_controller.start_gazebo()
 
     for episode in range(NUM_EPISODES):
+        
         print(f"Starting Episode {episode + 1}")
 
         episode_finished_event.clear()
 
+        start_thread = threading.Thread(target=gazebo_controller.start_gazebo)
+        start_thread.start()
+        start_thread.join()  # Ensure Gazebo has started before continuing
+
         episode_thread = threading.Thread(target=run_episode, args=(episode + 1,))
         episode_thread.start()
 
+        # Wait until the episode is finished or timeout
         if not episode_finished_event.wait(CONNECTION_TIMEOUT):
             print("Episode exceeded time limit or connection failed, stopping...")
-            episode_finished_event.set()
+            episode_finished_event.set()  # Ensure the event is set
 
-        #episode_thread.join()
+        # Stop Gazebo
+        stop_thread = threading.Thread(target=gazebo_controller.stop_gazebo)
+        stop_thread.start()
+        stop_thread.join()  # Ensure Gazebo has stopped before starting the next episode
 
-
-        time.sleep(5)
-
+        # Print the number of active threads
         print(f"Number of active threads: {threading.active_count()}")
+
         print(f"Finished Episode {episode + 1}")
 
-    gazebo_controller.stop_gazebo()
+
+    
     data_saver.save_data_to_json(data)
 
     print(f"Number of active threads: {threading.active_count()}")
+
+
+
+
+
+
