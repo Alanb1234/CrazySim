@@ -52,6 +52,7 @@ make all
 
 #### Spawning multiple crazyflie models with positions defined in the *agents.txt* file. New vehicles are defined by adding a new line with comma deliminated initial position *x,y*.
 ```bash
+cd ~/CrazySim/crazyflie-firmware
 bash tools/crazyflie-simulation/simulator_files/gazebo/launch/sitl_multiagent_text.sh -m crazyflie
 ```
 
