@@ -48,7 +48,7 @@ cmake ..
 make all
 ```
 
-### Make sure to replazy the gazebo folder in crazyflie-firmware with the gazebo folder in the custom CustomSetupFiles
+### Make sure to replace the gazebo folder in crazyflie-firmware with the gazebo folder in the custom CustomSetupFiles
 ```bash
 cd ~/CrazySim/crazyflie-firmware/tools/crazyflie-simulation/simulator_files
 ```
