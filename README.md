@@ -48,6 +48,11 @@ cmake ..
 make all
 ```
 
+### Make sure to replace the gazebo folder in crazyflie-firmware with the gazebo folder in the custom CustomSetupFiles
+```bash
+cd ~/CrazySim/crazyflie-firmware/tools/crazyflie-simulation/simulator_files
+```
+
 ## 4). Start up SITL manually (optional)
 
 #### Spawning multiple crazyflie models with positions defined in the *agents.txt* file. New vehicles are defined by adding a new line with comma deliminated initial position *x,y*.
