@@ -1,8 +1,6 @@
 #!/bin/bash
 # launch_gazebo.sh
 
-RESET_FILE=multiple_drones.txt
-
 if [ "$1" == "start" ]; then
     echo "Starting Gazebo..."
     bash ~/CrazySim/crazyflie-firmware/tools/crazyflie-simulation/simulator_files/gazebo/launch/sitl_multiagent_text.sh -m crazyflie &
@@ -27,11 +25,9 @@ elif [ "$1" == "stop" ]; then
     fi
     pkill -f gzclient
     sleep 2
-
-elif [ "$1" == "reset" ]; then
-    echo "Resetting UAV positions..."
-    bash ~/CrazySim/crazyflie-firmware/tools/crazyflie-simulation/simulator_files/gazebo/launch/sitl_multiagent_text.sh reset "$RESET_FILE"
-
 else
-    echo "Usage: launch_gazebo.sh {start|stop|reset}"
+    echo "Usage: launch_gazebo.sh {start|stop}"
 fi
+
+
+

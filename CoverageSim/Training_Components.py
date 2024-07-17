@@ -38,6 +38,25 @@ class GazeboController:
             print(f"Error terminating Gazebo: {e}")
         time.sleep(20)
 
+    def reset_uavs(self):
+        print("Resetting UAV positions in Gazebo...")
+        try:
+            result = subprocess.run(
+                ["/bin/bash", "/home/alan/CrazySim/CoverageSim/launch_gazebo.sh", "reset"],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE
+            )
+            print("Reset UAV positions.")
+            print(result.stdout.decode())
+            print(result.stderr.decode())
+        except subprocess.CalledProcessError as e:
+            print(f"Error resetting UAV positions: {e}")
+            print(e.stdout.decode())
+            print(e.stderr.decode())
+        time.sleep(5)  # Adjust this sleep time as needed
+
+
 
 class UAVController:
     def __init__(self):
@@ -52,13 +71,12 @@ class UAVController:
         commander = scf.cf.high_level_commander
         commander.land(0.0, 2.0)
         time.sleep(10)
-        commander.stop()
 
     def uav_commands(self, scf, command):
         commander = scf.cf.high_level_commander
         distance = 0.5
         duration = 1
-        print(f"Sending command '{command}' to drone '{scf.cf.link_uri}'")
+        #print(f"Sending command '{command}' to drone '{scf.cf.link_uri}'")
         if command == 'forward':
             commander.go_to(distance, 0, 0, 0, duration, relative=True)
         elif command == 'back':
