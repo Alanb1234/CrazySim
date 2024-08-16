@@ -59,13 +59,10 @@ class GazeboController:
 
 
 class UAVController:
-    def __init__(self):
-        self.pause = 4
-
     def take_off(self, scf):
         commander = scf.cf.high_level_commander
         commander.takeoff(1.0, 2.0)
-        time.sleep(self.pause)
+        time.sleep(4)
 
     def land(self, scf):
         commander = scf.cf.high_level_commander
@@ -74,12 +71,13 @@ class UAVController:
 
     def uav_commands(self, scf, command):
         commander = scf.cf.high_level_commander
-        distance = 0.5
-        duration = 1
+        distance = 1
+        #distance = 0.25
+        duration = 2
         #print(f"Sending command '{command}' to drone '{scf.cf.link_uri}'")
         if command == 'forward':
             commander.go_to(distance, 0, 0, 0, duration, relative=True)
-        elif command == 'back':
+        elif command == 'backward':
             commander.go_to(-distance, 0, 0, 0, duration, relative=True)
         elif command == 'left':
             commander.go_to(0, distance, 0, 0, duration, relative=True)
@@ -87,7 +85,7 @@ class UAVController:
             commander.go_to(0, -distance, 0, 0, duration, relative=True)
         elif command == 'stay':
             commander.go_to(0, 0, 0, 0, duration, relative=True)
-        time.sleep(self.pause)
+        time.sleep(4)
 
 
 class RewardCalculator:

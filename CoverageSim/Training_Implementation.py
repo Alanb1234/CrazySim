@@ -6,10 +6,10 @@ import cflib.crtp
 from cflib.crazyflie.swarm import CachedCfFactory, Swarm
 
 
-import threading
+
 from Training_Components import GazeboController, UAVController, RewardCalculator, DataSaver
 
-NUM_EPISODES = 4
+NUM_EPISODES = 2
 
 
 uris = [
@@ -52,26 +52,33 @@ def run_episodes(episodes):
                 }
 
                 commands_1 = {
+                    'udp://0.0.0.0:19850': ['forward'],
+                    'udp://0.0.0.0:19851': ['forward'],
+                    'udp://0.0.0.0:19852': ['forward'],
+                    'udp://0.0.0.0:19853': ['forward']
+                }
+                commands_2 = {
                     'udp://0.0.0.0:19850': ['stay'],
                     'udp://0.0.0.0:19851': ['forward'],
                     'udp://0.0.0.0:19852': ['left'],
                     'udp://0.0.0.0:19853': ['left']
                 }
-                commands_2 = {
+
+                commands_3 = {
                     'udp://0.0.0.0:19850': ['forward'],
                     'udp://0.0.0.0:19851': ['forward'],
-                    'udp://0.0.0.0:19852': ['forward'],
-                    'udp://0.0.0.0:19853': ['left']
+                    'udp://0.0.0.0:19852': ['backward'],
+                    'udp://0.0.0.0:19853': ['backward']
                 }
 
-                command_sets = [commands_1, commands_2]
+                command_sets = [commands_1, commands_2,commands_3]
 
                 for k, commands in enumerate(command_sets, start=1):
-                    #print(f"Command {k}:")
+                    print(f"Command {k}:")
                     swarm.parallel_safe(uav_controller.uav_commands, args_dict=commands)
                     moved_positions = swarm.get_estimated_positions()
                     reward, total_area, overlap_area, penalty, num_robots = reward_calculator.calculate_reward(moved_positions)
-                    #print(f'Coverage Reward: {reward}, Total Area: {total_area}, Overlap Area: {overlap_area}, Penalty: {penalty}, Robots: {num_robots}')
+                    print(f'Coverage Reward: {reward}, Total Area: {total_area}, Overlap Area: {overlap_area}, Penalty: {penalty}, Robots: {num_robots}')
 
                     episode_data["rewards"].append(reward)
                     for uri, command in commands.items():
@@ -88,11 +95,26 @@ def run_episodes(episodes):
                 print(f"Number of active threads: {threading.active_count()}")
 
 
-            data_saver.save_data_to_json(data)
-            time.sleep(5)
 
-            gazebo_controller.stop_gazebo()
-            swarm.close_links()
+            # Create threads for closing swarm links and stopping Gazebo
+            swarm_linkClose_thread = threading.Thread(target=swarm.close_links)
+            gazebo_stop_thread = threading.Thread(target=gazebo_controller.stop_gazebo)
+
+            # Start both threads
+            print("Starting cleanup...")
+            swarm_linkClose_thread.start()
+            print("Swarm links closed.")
+            time.sleep(2)
+            gazebo_stop_thread.start()
+            print("Gazebo stopped.")    
+
+
+            # Wait for both threads to complete
+            swarm_linkClose_thread.join()
+            print("Swarm links closed.")
+            gazebo_stop_thread.join()
+            print("Gazebo stopped.")    
+
 
     except Exception as e:
         print(f"Error during episode: {e}")
@@ -113,7 +135,6 @@ def main():
     print(f"Number of active threads: {threading.active_count()}")
     print("Completed all episodes and shut down gazebo.")
 
-    return 0
 
 
 
