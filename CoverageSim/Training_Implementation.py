@@ -64,14 +64,9 @@ def run_episodes(episodes):
                     'udp://0.0.0.0:19853': ['left']
                 }
 
-                commands_3 = {
-                    'udp://0.0.0.0:19850': ['forward'],
-                    'udp://0.0.0.0:19851': ['forward'],
-                    'udp://0.0.0.0:19852': ['backward'],
-                    'udp://0.0.0.0:19853': ['backward']
-                }
 
-                command_sets = [commands_1, commands_2,commands_3]
+
+                command_sets = [commands_1, commands_2]
 
                 for k, commands in enumerate(command_sets, start=1):
                     print(f"Command {k}:")

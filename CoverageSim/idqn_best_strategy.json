@@ -1,14 +1,24 @@
 {
-    "episode_number": 726,
-    "episode_reward": 73.0,
+    "episode_number": 1205,
+    "episode_reward": 810.5,
     "agent_0": {
         "actions": [
             "stay",
             "stay",
+            "stay",
+            "stay",
+            "forward",
+            "left",
+            "left",
+            "forward",
             "forward",
             "left",
             "forward",
-            "backward",
+            "left",
+            "forward",
+            "left",
+            "forward",
+            "left",
             "forward",
             "backward",
             "forward",
@@ -22,15 +32,25 @@
     "agent_1": {
         "actions": [
             "stay",
+            "stay",
+            "stay",
             "left",
             "forward",
             "forward",
             "forward",
             "forward",
             "forward",
-            "left",
+            "forward",
+            "forward",
             "backward",
-            "right"
+            "forward",
+            "backward",
+            "forward",
+            "backward",
+            "backward",
+            "forward",
+            "backward",
+            "forward"
         ],
         "initial_position": [
             2,
@@ -40,15 +60,25 @@
     "agent_2": {
         "actions": [
             "stay",
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward",
             "left",
             "forward",
             "left",
             "left",
             "forward",
-            "right",
+            "forward",
             "left",
-            "right",
-            "left"
+            "forward",
+            "forward",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
         ],
         "initial_position": [
             1,
@@ -57,6 +87,10 @@
     },
     "agent_3": {
         "actions": [
+            "left",
+            "left",
+            "left",
+            "left",
             "forward",
             "forward",
             "left",
@@ -65,8 +99,14 @@
             "forward",
             "left",
             "forward",
-            "right",
-            "left"
+            "forward",
+            "left",
+            "forward",
+            "left",
+            "forward",
+            "backward",
+            "backward",
+            "forward"
         ],
         "initial_position": [
             2,
