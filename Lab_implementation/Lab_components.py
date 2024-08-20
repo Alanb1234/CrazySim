@@ -1,9 +1,4 @@
-# Training_components.py
-# Contains the different tools needed for the training
-# Contaings the Controllers for gazebo and also the UAV
-# Contains the reward calculator and DataSaver
-
-
+# Lab_components.py
 import time
 import subprocess
 import threading

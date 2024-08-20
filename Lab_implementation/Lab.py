@@ -1,15 +1,13 @@
 import time
-
 import cflib.crtp
 from cflib.crazyflie.swarm import CachedCfFactory
 from cflib.crazyflie.swarm import Swarm
 
 from Lab_components import UAVController
-
 import json
 
 
-# Define the URIs for your Crazyflie drones
+# Define the URIs for the Crazyflie drones
 uris = [
     'radio://0/20/2M/E7E7E7E701',
     'radio://0/20/2M/E7E7E7E702',
@@ -65,7 +63,7 @@ def execute_strategy(strategy_file):
 
 
 if __name__ == '__main__':
-    strategy_file = 'idqn_best_strategy.json'  # Path to your JSON strategy file
+    strategy_file = 'idqn_best_strategy.json'  # Path to JSON strategy file
     execute_strategy(strategy_file)
     
 
