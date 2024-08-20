@@ -1,0 +1,76 @@
+{
+    "episode_number": 1403,
+    "episode_reward": 360.0,
+    "agent_0": {
+        "actions": [
+            "backward",
+            "backward",
+            "right",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            4,
+            3
+        ]
+    },
+    "agent_1": {
+        "actions": [
+            "right",
+            "forward",
+            "forward",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            5,
+            3
+        ]
+    },
+    "agent_2": {
+        "actions": [
+            "left",
+            "backward",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            4,
+            4
+        ]
+    },
+    "agent_3": {
+        "actions": [
+            "forward",
+            "forward",
+            "left",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            5,
+            4
+        ]
+    }
+}
