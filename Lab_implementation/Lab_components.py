@@ -11,7 +11,6 @@ import cflib.crtp
 from cflib.crazyflie.swarm import CachedCfFactory, Swarm
 import networkx as nx
 import matplotlib.pyplot as plt
-from std_msgs.msg import Empty
 
 
 

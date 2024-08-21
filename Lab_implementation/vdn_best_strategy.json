@@ -1,0 +1,76 @@
+{
+    "episode_number": 1690,
+    "episode_reward": 360.0,
+    "agent_0": {
+        "actions": [
+            "right",
+            "backward",
+            "stay",
+            "backward",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            4,
+            3
+        ]
+    },
+    "agent_1": {
+        "actions": [
+            "forward",
+            "forward",
+            "right",
+            "stay",
+            "stay",
+            "stay",
+            "backward",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            5,
+            3
+        ]
+    },
+    "agent_2": {
+        "actions": [
+            "backward",
+            "backward",
+            "left",
+            "forward",
+            "stay",
+            "stay",
+            "backward",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            4,
+            4
+        ]
+    },
+    "agent_3": {
+        "actions": [
+            "left",
+            "forward",
+            "forward",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay",
+            "stay"
+        ],
+        "initial_position": [
+            5,
+            4
+        ]
+    }
+}

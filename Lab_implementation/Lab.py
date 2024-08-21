@@ -12,7 +12,7 @@ uris = [
     'radio://0/20/2M/E7E7E7E701',
     'radio://0/20/2M/E7E7E7E702',
     'radio://0/20/2M/E7E7E7E703',
-    'radio://0/20/2M/E7E7E7E704',
+    'radio://0/20/2M/E7E7E7E704'
 ]
 
 # Map agent numbers to URIs
