@@ -37,6 +37,8 @@ def run_episodes(episodes):
 
             ## Sart of the episodes
             for i in range(episodes):
+
+                time.sleep(2)
                 print(f"Starting episode {i + 1}/{episodes}")
 
                 swarm.parallel_safe(uav_controller.take_off) 
@@ -99,7 +101,7 @@ def run_episodes(episodes):
             print("Starting cleanup...")
             swarm_linkClose_thread.start()
             print("Swarm links closed.")
-            time.sleep(2)
+            time.sleep(4)
             gazebo_stop_thread.start()
             print("Gazebo stopped.")    
 

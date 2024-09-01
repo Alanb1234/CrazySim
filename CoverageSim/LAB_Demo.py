@@ -37,7 +37,6 @@ def execute_strategy(strategy_file):
     # Initialize CRTP
     cflib.crtp.init_drivers()
     factory = CachedCfFactory(rw_cache='./cache')
-
     with Swarm(URI_MAPPING.values(), factory=factory) as swarm:
 
         print('Connected to Crazyflies')
@@ -45,7 +44,7 @@ def execute_strategy(strategy_file):
         for i in range(NUM_RUNS):
             print(f"\nStarting run {i+1}")
 
-
+            time.sleep(2)
             # Take off
             swarm.parallel_safe(uav_controller.take_off)
 
@@ -63,14 +62,7 @@ def execute_strategy(strategy_file):
                 print(f"Step {step + 1}: Executing commands {commands}")
                 swarm.parallel_safe(uav_controller.uav_commands, args_dict=commands)
 
-
-
-                # Calculate and print reward after each step
-                positions = swarm.get_estimated_positions()
-                reward, total_area, overlap_area, penalty, num_robots = reward_calculator.calculate_reward(positions)
-                print(f'Step {step + 1} - Reward: {reward}, Total Area: {total_area}, Overlap: {overlap_area}, Penalty: {penalty}')
-                
-                time.sleep(2)  # Small delay between steps
+                time.sleep(4)  # Small delay between steps
 
 
 
@@ -93,7 +85,7 @@ def execute_strategy(strategy_file):
         print("Starting cleanup...")
         swarm_linkClose_thread.start()
         print("Swarm links closed.")
-        time.sleep(2)
+        time.sleep(4)
         gazebo_stop_thread.start()
         print("Gazebo stopped.")    
 
@@ -112,5 +104,5 @@ def execute_strategy(strategy_file):
 
 
 if __name__ == "__main__":
-    strategy_file = 'idqn_best_strategy.json'  # Path to your JSON strategy file
+    strategy_file = 'vdn_best_strategy.json'  # Path to your JSON strategy file
     execute_strategy(strategy_file)

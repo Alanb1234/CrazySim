@@ -29,9 +29,9 @@ def execute_strategy(strategy_file):
         commands = {}
         for agent, uri in URI_MAPPING.items():
             if agent in strategy and step < len(strategy[agent]['actions']):
-                commands[uri] = strategy[agent]['actions'][step]
+                commands[uri] = [strategy[agent]['actions'][step]]
             else:
-                commands[uri] = 'stay'  # Default action if strategy is exhausted
+                commands[uri] = ['stay']  # Default action if strategy is exhausted
 
         print(f"Step {step + 1}: Executing commands {commands}")
         time.sleep(1)  # Small delay between steps

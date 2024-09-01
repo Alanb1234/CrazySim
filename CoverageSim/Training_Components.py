@@ -62,7 +62,7 @@ class UAVController:
     def take_off(self, scf):
         commander = scf.cf.high_level_commander
         commander.takeoff(1.0, 2.0)
-        time.sleep(4)
+        time.sleep(10)
 
     def land(self, scf):
         commander = scf.cf.high_level_commander
@@ -85,7 +85,7 @@ class UAVController:
             commander.go_to(0, -distance, 0, 0, duration, relative=True)
         elif command == 'stay':
             commander.go_to(0, 0, 0, 0, duration, relative=True)
-        time.sleep(4)
+        time.sleep(5)
 
 
 class RewardCalculator:
